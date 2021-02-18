@@ -1,5 +1,7 @@
 <?php
 
+// Autor: Edvin Pacheco
+// Fecha: Febrero del 2021
 
 
 class conexion {
