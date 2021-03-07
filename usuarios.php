@@ -8,7 +8,7 @@ $_usuarios = new usuarios;
 $_sesion = new Session;  
 
     if($_SERVER['REQUEST_METHOD'] == "GET"){
-        if(isset($_GET["idrol"]) && isset($_GET["token"])){
+        if(isset($_GET["idrol"]) && isset($_GET["token"])){//Obtener todos los Usuarios
             $idrol = $_GET["idrol"];
             $token = $_GET["token"];
             if($token){
@@ -23,13 +23,13 @@ $_sesion = new Session;
             }else{
                 return $_respuestas->error_401();
             }
-        }else if(isset($_GET['iduser'])){
+        }else if(isset($_GET['iduser'])){//Obtener un usuario por ID
             $idusuario = $_GET['iduser'];
             $datosUsuario = $_usuarios->obtenerUsuario($idusuario);
             header("Content-Type: application/json");
             echo json_encode($datosUsuario);
             http_response_code(200);
-        }else if(isset($_GET['idrol'])){
+        }else if(isset($_GET['idrol'])){//Obtener el total de usuarios 
             $idrol = $_GET['idrol'];
             $datosUsuario = $_usuarios->obtenerTotalusuario($idrol);
             header("Content-Type: application/json");
