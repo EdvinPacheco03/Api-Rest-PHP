@@ -30,7 +30,7 @@
     <div class="divbody">   
         <h2>Pacientes</h2>
         <code>
-           GET (<strong>Obtener todos los pacientes por usuario</strong>)    /pacientes?iduser=$numeroPagina&token=$token
+           GET (<strong>Obtener todos los pacientes por usuario</strong>)    /pacientes?iduser=$iduser&token=$token
            <br>
            GET (obtener pacientes por ID)                   /pacientes?id=$idPaciente
            <br>
