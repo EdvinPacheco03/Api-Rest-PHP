@@ -34,6 +34,8 @@
            <br>
            GET (obtener pacientes por ID)                   /pacientes?id=$idPaciente
            <br>
+           GET (obtener pacientes por Nombre)                   /pacientes?naem=$namePaciente
+           <br>
            GET (Filtrar paciente por DPI)                   /pacientes?dpi=$dpi
            <br>
            GET (Obtener el total de pacientes por usuario)  /pacientes?idusuario=$idusuario

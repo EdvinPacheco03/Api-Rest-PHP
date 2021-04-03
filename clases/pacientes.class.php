@@ -44,8 +44,15 @@ class pacientes extends conexion {
 
     }
 
+    //Funcion para obtener un paciente por Nombre
+    public function obtenerPacienteName($name){
+        $query = "SELECT * FROM " . $this->table . " WHERE Nombre LIKE '%$name%'";
+        return parent::obtenerDatos($query);
+
+    }
+
     //Funcion para filtrar pacientes por DPI
-    public function obtenerPacienteName($dpi){
+    public function obtenerPacienteDpi($dpi){
         $query = "SELECT * FROM " . $this->table . " WHERE DNI = '$dpi'";
         return parent::obtenerDatos($query);
 

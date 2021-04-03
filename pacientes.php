@@ -25,9 +25,15 @@ $_sesion = new Session;
             header("Content-Type: application/json");
             echo json_encode($datosPaciente);
             http_response_code(200);
+        }else if(isset($_GET['name'])){//Obtener un paciente por Nombre
+            $pacienteName = $_GET['name'];
+            $datosPaciente = $_pacientes->obtenerPacienteName($pacienteName);
+            header("Content-Type: application/json");
+            echo json_encode($datosPaciente);
+            http_response_code(200);
         }else if(isset($_GET['dpi'])){//Filtrar Paciente por DPI
             $dpi = $_GET['dpi'];
-            $datosPaciente = $_pacientes->obtenerPacienteName($dpi);
+            $datosPaciente = $_pacientes->obtenerPacienteDpi($dpi);
             header("Content-Type: application/json");
             echo json_encode($datosPaciente);
             http_response_code(200);
