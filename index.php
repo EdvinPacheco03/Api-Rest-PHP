@@ -52,9 +52,7 @@
                <br> 
                "correo":"",                 -> REQUERIDO
                <br> 
-               "idusuario":"",                 -> REQUERIDO
-               <br> 
-               "codigoPostal" :"",             
+               "idusuario":"",                 -> REQUERIDO         
                <br>  
                "genero" : "",        
                <br>        
@@ -76,9 +74,7 @@
                <br> 
                "dni" : "",                  
                <br> 
-               "correo":"",                 
-               <br> 
-               "codigoPostal" :"",             
+               "correo":"",                      
                <br>  
                "genero" : "",        
                <br>        

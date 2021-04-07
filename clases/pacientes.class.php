@@ -9,7 +9,6 @@ class pacientes extends conexion {
     private $dni = "";
     private $nombre = "";
     private $direccion = "";
-    private $codigoPostal = "";
     private $genero = "";
     private $telefono = "";
     private $fechaNacimiento = "0000-00-00";
@@ -87,7 +86,6 @@ class pacientes extends conexion {
                     $this->idusuario = $datos['idusuario'];
                     if(isset($datos['telefono'])) { $this->telefono = $datos['telefono']; }
                     if(isset($datos['direccion'])) { $this->direccion = $datos['direccion']; }
-                    if(isset($datos['codigoPostal'])) { $this->codigoPostal = $datos['codigoPostal']; }
                     if(isset($datos['genero'])) { $this->genero = $datos['genero']; }
                     if(isset($datos['fechaNacimiento'])) { $this->fechaNacimiento = $datos['fechaNacimiento']; }
                     $resp = $this->insertarPaciente();
@@ -114,9 +112,9 @@ class pacientes extends conexion {
 
     //Funcion con el query para insertar un nuevo paciente
     private function insertarPaciente(){
-        $query = "INSERT INTO " . $this->table . " (DNI,Nombre,Direccion,CodigoPostal,Telefono,Genero,FechaNacimiento,Correo,id_usuario)
+        $query = "INSERT INTO " . $this->table . " (DNI,Nombre,Direccion,Telefono,Genero,FechaNacimiento,Correo,id_usuario)
         values
-        ('" . $this->dni . "','" . $this->nombre . "','" . $this->direccion ."','" . $this->codigoPostal . "','"  . $this->telefono . "','" . $this->genero . "','" . $this->fechaNacimiento . "','" . $this->correo . "','" . $this->idusuario . "')"; 
+        ('" . $this->dni . "','" . $this->nombre . "','" . $this->direccion ."','"  . $this->telefono . "','" . $this->genero . "','" . $this->fechaNacimiento . "','" . $this->correo . "','" . $this->idusuario . "')"; 
         $resp = parent::nonQueryId($query);
         if($resp){
              return $resp;
@@ -145,7 +143,6 @@ class pacientes extends conexion {
                     if(isset($datos['correo'])) { $this->correo = $datos['correo']; }
                     if(isset($datos['telefono'])) { $this->telefono = $datos['telefono']; }
                     if(isset($datos['direccion'])) { $this->direccion = $datos['direccion']; }
-                    if(isset($datos['codigoPostal'])) { $this->codigoPostal = $datos['codigoPostal']; }
                     if(isset($datos['genero'])) { $this->genero = $datos['genero']; }
                     if(isset($datos['fechaNacimiento'])) { $this->fechaNacimiento = $datos['fechaNacimiento']; }
         
@@ -171,8 +168,8 @@ class pacientes extends conexion {
 
     //Funcion con el query para actualizar los pacientes
     private function modificarPaciente(){
-        $query = "UPDATE " . $this->table . " SET Nombre ='" . $this->nombre . "',Direccion = '" . $this->direccion . "', DNI = '" . $this->dni . "', CodigoPostal = '" .
-        $this->codigoPostal . "', Telefono = '" . $this->telefono . "', Genero = '" . $this->genero . "', FechaNacimiento = '" . $this->fechaNacimiento . "', Correo = '" . $this->correo .
+        $query = "UPDATE " . $this->table . " SET Nombre ='" . $this->nombre . "',Direccion = '" . $this->direccion . "', DNI = '" . $this->dni . "',
+         Telefono = '" . $this->telefono . "', Genero = '" . $this->genero . "', FechaNacimiento = '" . $this->fechaNacimiento . "', Correo = '" . $this->correo .
          "' WHERE PacienteId = '" . $this->pacienteid . "'"; 
         $resp = parent::nonQuery($query);
         if($resp >= 1){
