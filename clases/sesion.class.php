@@ -17,7 +17,7 @@ class Session {
             // print_r($value);
             $_SESSION['active'] = true;
             $_SESSION["usuarioid"] = $value['id_usuario'];
-            $_SESSION["usuario"] = $value['usuario'];
+            $_SESSION["usuario"] = $value['nombre'];
             $_SESSION["pass"] = $value['password'];
             $_SESSION["estado"] = $value['estado'];
             $_SESSION["idrol"] = $value['idrol'];

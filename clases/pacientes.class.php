@@ -27,7 +27,7 @@ class pacientes extends conexion {
         //     $inicio = ($cantidad * ($pagina - 1)) +1 ;
         //     $cantidad = $cantidad * $pagina;
         // }
-        $query = "SELECT PacienteId,Nombre,DNI,Telefono,Correo FROM " . $this->table . " where id_usuario = $idusuario" ;
+        $query = "SELECT PacienteId,Nombre,DNI,Telefono,Correo FROM " . $this->table . " where id_usuario = $idusuario AND estado = 'Activo'" ;
         $datos = parent::obtenerDatos($query);
         $result = $_respuestas->response;
         $result["result"] = array(
@@ -219,7 +219,7 @@ class pacientes extends conexion {
 
     //Funcion con el query para eliminar un paciente
     private function eliminarPaciente(){
-        $query = "DELETE FROM " . $this->table . " WHERE PacienteId= '" . $this->pacienteid . "'";
+        $query = "UPDATE " . $this->table . "SET estado = 'Inactivo' WHERE PacienteId= '" . $this->pacienteid . "'";
         $resp = parent::nonQuery($query);
         if($resp >= 1 ){
             return $resp;

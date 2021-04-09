@@ -58,7 +58,7 @@ class auth extends conexion{
 
     private function obtenerDatosUsuario($correo){
         $session = new Session();
-        $query = "SELECT id_usuario,usuario,password,idrol,estado FROM usuarios WHERE usuario = '$correo'";
+        $query = "SELECT id_usuario,nombre,usuario,password,idrol,estado FROM usuarios WHERE usuario = '$correo'";
         $datos = parent::obtenerDatos($query);
         $array = parent::oneSession($query);
         if(isset($datos[0]["id_usuario"])){
