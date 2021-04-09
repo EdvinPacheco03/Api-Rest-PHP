@@ -23,7 +23,7 @@ class citas extends conexion {
         //     $inicio = ($cantidad * ($pagina - 1)) +1 ;
         //     $cantidad = $cantidad * $pagina;
         // }
-        $query = "SELECT c.CitaId, p.PacienteId, p.Nombre, c.Fecha, c.Estado, c.Motivo FROM " . $this->table . " AS c INNER JOIN pacientes AS p ON c.PacienteId = p.PacienteId where c.id_usuario = $idusuario AND estado = 'Activo'";
+        $query = "SELECT c.CitaId, p.PacienteId, p.Nombre, c.Fecha, c.Estado, c.Motivo FROM " . $this->table . " AS c INNER JOIN pacientes AS p ON c.PacienteId = p.PacienteId where c.id_usuario = $idusuario AND c.Estado = 'Activo'";
         $datos = parent::obtenerDatos($query);
         $result = $_respuestas->response;
         $result["result"] = array(
@@ -33,7 +33,7 @@ class citas extends conexion {
     }
 
     public function obtenerCita($id){
-        $query = "SELECT c.CitaId,c.Estado,c.Fecha,c.HoraFin,c.HoraInicio,c.Motivo,c.id_usuario, p.DNI FROM " . $this->table . " AS c INNER JOIN pacientes AS p ON c.PacienteId = p.PacienteId where c.CitaId = $id AND estado = 'Activo'";
+        $query = "SELECT c.CitaId,c.Estado,c.Fecha,c.HoraFin,c.HoraInicio,c.Motivo,c.id_usuario, p.DNI FROM " . $this->table . " AS c INNER JOIN pacientes AS p ON c.PacienteId = p.PacienteId where c.CitaId = $id AND c.Estado = 'Activo'";
         return parent::obtenerDatos($query);
 
     }
